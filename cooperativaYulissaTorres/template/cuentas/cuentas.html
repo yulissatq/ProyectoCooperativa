@@ -1,0 +1,51 @@
+{% extends 'master/master.html' %}
+
+
+{% block contenido%}
+<div class="row mt">
+        <div class="col-md-12">
+            <div class="content-panel">
+                <table class="table table-striped table-advance table-hover">
+                        <hr>
+                        <h4><i class="fa fa-angle-right"></i> Cuentas de CoopYissa</h4>
+                        <hr>
+                    <thead>
+                    <tr>
+                        <th><i class="far fa-address-card"></i> Cédula</th>
+                        <th><i class="far fa-user-circle"></i> Nombres</th>
+                        <th><i class="far fa-user-circle"></i> Apellidos</th>
+                        <th><i class="far fa-address-card"></i> Número de Cuenta</th>
+                        <th><i class="fas fa-hand-holding-usd"></i>Saldo de la Cuenta</th>
+                        <th><i class="fas fa-clipboard-list"></i> Tipo de Cuenta</th>
+                        
+                        <th><i class="far fa-minus-square"></i> Estado</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in listaCuentas%}
+                    <tr>
+                        <td class="hidden-phone" >{{i.cedula}}</td>
+                        <td class="hidden-phone">{{i.nombres}}</td>
+                        <td class="hidden-phone" >{{i.apellidos}}</td>
+                        <td class="hidden-phone">{{i.cuenta__numero}}</td>
+                        <td class="hidden-phone" >{{i.cuenta__saldo}}</td> 
+                        <td class="hidden-phone">{{i.cuenta__tipoCuenta}}</td>
+                        
+                        {% if i.estado == True%}
+                        <td><span class="label label-success label-mini">Activo</span></td>
+                        {% else %}
+                        <td><span class="label label-warning label-mini">Inactivo</span></td>
+                        {% endif %}
+
+
+                        
+                    </tr>
+                    {% endfor %}
+                   
+                    </tbody>
+                </table>
+            </div><!-- /content-panel -->
+        </div><!-- /col-md-12 -->
+    </div><!-- /row -->
+    {% endblock%}

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+        {% load staticfiles %}        
+		<title>Cooperativa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'home/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menu</span></a>
+				</nav>
+				<a href="index.html" class="logo">Cooperativa de Ahorro y Crédito</a>
+				<nav class="right">
+					<a href="{% url 'autenticar' %}" class="button alt">Login</a>
+				</nav>
+			</header>
+
+		<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="#banner"><i class="fas fa-home"></i>    Inicio</a></li>
+					<li><a href="#one"><i class="fas fa-hand-holding-heart"></i>    Valores</a></li>
+					<li><a href="#two"><i class="far fa-handshake"></i>    Responsabilidad</a></li>
+					<li><a href="#footer"><i class="fas fa-phone"></i>   Contacto</a></li>
+				</ul>
+				<ul class="actions vertical">
+					<li><a href="{% url 'autenticar' %}" class="button fit">Login</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<h1>CoopYissa</h1>
+					<p>Somos una cooperativa de ahorro y crédito segura y participativa que contribuye en el crecimiento socioeconómico de sus socios <br />y fortalece la economía popular y solidaria mediante servicios financieros de calidad, incluyentes y sostenibles.</p>
+					<ul class="actions">
+						<li><a href="{% url 'autenticar' %}" class="button scrolly">Iniciar Sesion</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item left">
+						<div>
+							<h3>Tranparencia</h3>
+							<p>Mostrarnos como somos, sin reservas, sin ocultar información que pueda afectar la gestión, desarrollo e imagen de la cooperativa.</p>
+						</div>
+						<div>
+							<h3>Confianza</h3>
+							<p>Tener seguridad en las propias destrezas para realizar una contribución positiva y competente en el trabajo.</p>
+						</div>
+					</div>
+					<div class="flex-item image fit round">
+						<img src="{% static 'home/images/img01.jpg' %}" alt="" />
+					</div>
+					<div class="flex-item right">
+						<div>
+                            <h3>Compromiso</h3>
+                            <p>Apropiarnos, empoderarnos de las responsabilidades adquiridas en las funciones a desempeñar y cumplirlas con capacidad.</p>
+							
+						</div>
+						<div>
+                            <h3>Integridad</h3>
+                            <p>Mantener un comportamiento probo y con integridad de pensamiento, sentimiento y actuación interna y externamente.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style1 special">
+				<div class="inner">
+					<h2>Responsabilidad</h2>
+					<figure>
+					    <blockquote>
+					        "Actuar de acuerdo con los principios morales incluso cuando uno se siente presionado a hacer otra cosa. Asumir y cumplir con oportunidad y calidad las funciones asignadas en conformidad a los códigos de conducta y políticas establecidas en la cooperativa."
+					    </blockquote>
+					    <footer>
+					        <cite class="author">Yulissa Torres</cite>
+					        <cite class="company">CEO, Untitled</cite>
+					    </footer>
+					</figure>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="{% static 'home/images/img02.jpg' %}" alt="" />
+						</div>
+						<div class="content">
+							<h3>Educación Cooperativa</h3>
+							<p>Desde nuestros orígenes hemos impulsado la creación de espacios para la capacitación y formación a nuestros socios, jóvenes, organizaciones de la Economía Popular y Solidaria.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="{% static 'home/images/img03.jpg' %}" alt="" />
+						</div>
+						<div class="content">
+							<h3>Visión 2019</h3>
+							<p>Ser un referente positivo del desempeño social y financiero de la economía popular y solidaria del Ecuador con una gestión participativa e incluyente, basada en Calidad, Cercanía y Servicio.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="{% static 'home/images/img04.jpg' %}" alt="" />
+						</div>
+						<div class="content">
+							<h3>Gobierno Cooperativo</h3>
+							<p>El Gobierno Directivo General está formado por la Asamblea General de Representantes, el Consejo de Administración, el Consejo de Vigilancia, y la Comisión de Educación Cooperativa.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>CoopYissa</h2>
+					<ul class="actions">
+						<li><span class="icon fa-phone"></span> <a href="#">(593) 969-899-125</a></li>
+						<li><span class="icon fa-envelope"></span> <a href="#">coopyissa@gmail.com</a></li>
+						<li><span class="icon fa-map-marker"></span> Juan Montalvo y Antonio Narino, Loja, N 359</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Yulissa Torres. Design <a href="https://templated.co">TEMPLATED</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'home/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'home/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'home/assets/js/util.js' %}"></script>
+			<script src="{% static 'home/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

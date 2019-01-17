@@ -1,0 +1,41 @@
+{% extends 'master/master.html' %}
+{% block contenido %}
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+        {% load staticfiles %}        
+		<title>Cooperativa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'home/assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<h1> Bienvenido
+                        {% if user.is_authenticated %}
+                        <b>{{user.username}}</b>
+                        {% endif %}
+                        a CoopYissa</h1>
+					
+				</div>
+			</section>
+
+		
+		<!-- Scripts -->
+			<script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'home/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'home/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'home/assets/js/util.js' %}"></script>
+			<script src="{% static 'home/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+{% endblock%}

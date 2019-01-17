@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Comprobante Transaccion</title>
+    
+</head>
+
+<body>
+<div style="padding-left: 10%; padding-top: 15%">
+<div style="height: 75%; width: 75%; border: 1px solid black; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%">
+<center>
+<h3 >COMPROBANTE</h3>
+<h4 style=" margin-bottom: 0%; padding-top: 0%;">COOPYISSA</h4>
+<h4 >Cuenta de {% for i in cuentas%}
+  {{i.tipoCuenta}}
+  {%endfor%}
+</h4>
+</center>
+
+<table>
+<tr>
+  <td>Cuenta: </td>
+  <td>{{numero}}</td>
+</tr>
+
+<tr>
+  <td>Nombres: </td>
+  <td>{% for i in clientes%}
+    {{i.nombres}}&nbsp{{i.apellidos}}
+    {%endfor%}</td>
+</tr>
+
+<tr>
+  <td>Efectivo:</td>
+  <td>{{monto}}</td>
+</tr>
+
+<tr>
+  <td>Total: </td>
+  <td> {{monto}}</td>
+</tr>
+
+<tr>
+  <td>Saldo: </td>
+  <td> {% for i in cuentas%}
+    {{i.saldo}}
+    {%endfor%}</td>
+</tr>
+
+<tr>
+  <td>Moneda:</td>
+  <td>1 - DOLARES</td>
+</tr>
+
+<tr>
+  <td>Cajero:</td>
+  <td>{{user}}</td>
+</tr>
+</table>
+
+</div>
+</div>
+</body>
+
+</html>

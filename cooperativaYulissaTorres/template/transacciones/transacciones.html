@@ -1,0 +1,76 @@
+{% extends 'master/master.html' %}
+
+
+{% block contenido%}
+<div class="row mt">
+        <div class="col-md-12">
+            <div class="content-panel">
+                <table class="table table-striped table-advance table-hover">
+                        <div class="row mt">
+                                <div class="col-lg-12">
+                                    <div class="form-panel">
+                                      <h4 class="mb"><i class="fa fa-angle-right"></i> Buscar</h4>
+                                    <form class="form-inline" role="form">
+                                        <div class="form-group">
+                                            <input  class="form-control" id="txt_cedulaTransac"  placeholder="Ingrese Cédula a Buscar">
+                                        </div>
+                                        <center><button type="button" id="txt_buscarTransac" class="btn btn-theme" onclick=buscar()>Buscar</button></center>
+                                    </form>
+                                    </div><!-- /form-panel -->
+                                </div><!-- /col-lg-12 -->
+                            </div><!-- /row -->
+                            <hr>
+                            <script>
+                                function buscar(){
+                                    var cedula = $('#txt_cedulaTransac').val()
+                                    window.location.href = '{%url "buscarTransaccion" %}' + '?cedula=' + cedula
+                                }
+                            </script>
+                        <h4><i class="fa fa-angle-right"></i> Cuentas de CoopYissa</h4>
+                        <hr>
+                    <thead>
+                    <tr>
+                        <th><i class="far fa-address-card"></i> Cédula</th>
+                        <th><i class="far fa-user-circle"></i> Nombres</th>
+                        <th><i class="far fa-user-circle"></i> Apellidos</th>
+                        <th><i class="fas fa-at"></i> Email</th>
+                        <th><i class="far fa-address-card"></i> Número de Cuenta</th>
+                        <th><i class="fas fa-hand-holding-usd"></i>Saldo de la Cuenta</th>
+                        <th><i class="fas fa-clipboard-list"></i> Tipo de Cuenta</th>
+                        
+                        <th><i class="far fa-minus-square"></i> Estado</th>
+                        <th><i class="far fa-arrow-alt-circle-right"></i> Acciones</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in listaCuentasTransac%}
+                    <tr>
+                        <td class="hidden-phone" >{{i.cedula}}</td>
+                        <td class="hidden-phone">{{i.nombres}}</td>
+                        <td class="hidden-phone" >{{i.apellidos}}</td>
+                        <td class="hidden-phone" >{{i.correo}}</td>
+                        <td class="hidden-phone">{{i.cuenta__numero}}</td>
+                        <td class="hidden-phone" >{{i.cuenta__saldo}}</td> 
+                        <td class="hidden-phone">{{i.cuenta__tipoCuenta}}</td>
+                       
+                        {% if i.estado == True%}
+                        <td><span class="label label-success label-mini">Activo</span></td>
+                        {% else %}
+                        <td><span class="label label-warning label-mini">Inactivo</span></td>
+                        {% endif %}
+                        <td>
+                            <center>
+                            <a class="btn btn-info btn-xs" href="{% url 'transaccion' cedula=i.cedula numero=i.cuenta__numero %}"><i class="far fa-plus-square"></i></a>
+                            <a class="btn btn-warning btn-xs" href="{% url 'transaccion' cedula=i.cedula numero=i.cuenta__numero %}"><i class="far fa-minus-square"></i></i></a>
+                            </center>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                
+            </div><!-- /content-panel -->
+        </div><!-- /col-md-12 -->
+    </div><!-- /row -->
+    {% endblock%}

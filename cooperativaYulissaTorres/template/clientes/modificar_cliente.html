@@ -1,0 +1,80 @@
+{% extends "master/master.html" %}
+
+{% block contenido %}
+            
+            <div class="row mt">
+                <div class="col-lg-12">
+                <div class="form-panel">
+                      <h4 class="mb"><i class="fa fa-angle-right"></i> Modificar Cliente: </h4>
+                    <form class="form-horizontal style-form" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Cédula:</label>
+                            <div class="col-sm-10">
+                               <fieldset disabled="disabled">
+                                   {{formulario.cedula}}
+                               </fieldset> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Nombres:</label>
+                            <div class="col-sm-10">
+                                {{formulario.nombres}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Apellidos:</label>
+                            <div class="col-sm-10">
+                                {{formulario.apellidos}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Género:</label>
+                            <div class="col-sm-10">
+                                {{formulario.genero}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Estado Civil:</label>
+                            <div class="col-sm-10">
+                                {{formulario.estadoCivil}}
+                            </div>
+                        </div>    
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Fecha de Nacimiento:</label>
+                            <div class="col-sm-10">
+                                {{formulario.fechaNacimiento}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Teléfono:</label>
+                            <div class="col-sm-10">
+                                {{formulario.telefono}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Celular:</label>
+                            <div class="col-sm-10">
+                                {{formulario.celular}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 col-sm-2 control-label">Dirección:</label>
+                            <div class="col-sm-10">
+                                {{formulario.direccion}}
+                            </div>
+                        </div>
+                        <center>
+                        <input class = "btn waves-effect waves-light" type="submit" value="MODIFICAR">
+                        <input class = "btn waves-effect waves-light" type="button" onclick=cancelar() value="CANCELAR">
+                        </center>
+                        <script>
+                            function cancelar(){
+                            window.location.href = '{%url "gestion" %}'
+                            }
+                        </script>
+                        {% csrf_token %} 
+                    </form>
+                </div>
+                </div><!-- col-lg-12-->      	
+            </div><!-- /row -->
+     {% endblock %}

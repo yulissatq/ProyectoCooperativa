@@ -1,0 +1,85 @@
+
+{% extends 'master/master.html' %}
+
+
+{% block contenido%}
+<div class="row mt">
+        <div class="col-md-12">
+            <div class="content-panel">
+                <table class="table table-striped table-advance table-hover">
+                        <div class="row mt">
+                                <div class="col-lg-12">
+                                    <div class="form-panel">
+                                      <h4 class="mb"><i class="fa fa-angle-right"></i> Buscar</h4>
+                                    <form class="form-inline" role="form">
+                                        <div class="form-group">
+                                            <input  class="form-control" id="txt_cedulaGest"  placeholder="Ingrese Cédula a Buscar">
+                                        </div>
+                                        <center><button type="button" id="txt_buscarGest" class="btn btn-theme" onclick=buscar()>Buscar</button></center>
+                                    </form>
+                                    </div><!-- /form-panel -->
+                                </div><!-- /col-lg-12 -->
+                            </div><!-- /row -->
+                            <hr>
+                            <script>
+                                function buscar(){
+                                    var cedula = $('#txt_cedulaGest').val()
+                                    window.location.href = '{%url "buscarGestion" %}' + '?cedula=' + cedula    
+                                }
+                            </script>
+                        <h4><i class="fa fa-angle-right"></i> Ingreso de Clientes y Creacion de Cuentas
+                        <a class="btn btn-info" href="{% url 'crear'%}"><i class="fas fa-plus-square"></i> </a></h4>
+                        <hr>
+                    <thead>
+                    <tr>
+                        <th><i class="far fa-address-card"></i> Cédula</th>
+                        <th><i class="far fa-user-circle"></i> Nombres</th>
+                        <th><i class="far fa-user-circle"></i> Apellidos</th>
+                        <th><i class="fas fa-transgender"></i> Género</th>
+                        <th><i class="far fa-address-card"></i> Estado Civil</th>
+                        <th><i class="fas fa-calendar-day"></i> Fecha de Nacimiento</th>
+                        <th><i class="fas fa-at"></i> Email</th>
+                        <th><i class="fas fa-phone-square"></i> Teléfono</th>
+                        <th><i class="fas fa-mobile-alt"></i> Celular</th>
+                        <th><i class="fas fa-address-card"></i> Dirección</th>
+                        <th><i class="far fa-minus-square"></i> Estado</th>
+                        <th><i class="far fa-arrow-alt-circle-right"></i> Acciones</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in lista%}
+                    <tr>
+                        <td class="hidden-phone" >{{i.cedula}}</td>
+                        <td class="hidden-phone">{{i.nombres}}</td>
+                        <td class="hidden-phone" >{{i.apellidos}}</td>
+                        <td class="hidden-phone">{{i.genero}}</td>
+                        <td class="hidden-phone" >{{i.estadoCivil}}</td>
+                        <td class="hidden-phone">{{i.fechaNacimiento}}</td>
+                        <td class="hidden-phone">{{i.correo}}</td>
+                        <td class="hidden-phone" >{{i.telefono}}</td>
+                        <td class="hidden-phone">{{i.celular}}</td>
+                        <td class="hidden-phone">{{i.direccion}}</td>
+
+                        {% if i.estado == True%}
+                        <td><span class="label label-success label-mini">Activo</span></td>
+                        {% else %}
+                        <td><span class="label label-warning label-mini">Inactivo</span></td>
+                        {% endif %}
+
+                        <td>
+                            <center>
+                            <a class="btn btn-success btn-xs" href="{% url 'activar' pk=i.cedula%}"><i class="fa fa-check"></i></a>
+                            <a class="btn btn-primary btn-xs" href="{% url 'modificar' pk=i.cedula%}"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-warning btn-xs" href="{% url 'inactivar' pk=i.cedula%}"><i class="fa fa-trash-o "></i></a>
+                            </center>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                   
+                    </tbody>
+                </table>
+            </div><!-- /content-panel -->
+        </div><!-- /col-md-12 -->
+    </div><!-- /row -->
+    {% endblock%}

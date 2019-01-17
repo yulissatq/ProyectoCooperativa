@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+<html>
+<head>
+{% load staticfiles %}      
+<meta charset="UTF-8">
+<title>Sign In form</title>
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div id="main" class="container"> 	
+
+	<form name="loginform" id="loginform" action="#" method="post" class="wpl-track-me"> 
+		
+		<p class="login-username">
+		<label for="user_login">Username</label> 
+        {{f.username}}
+		</p> 
+		<p class="login-password"> 
+        <label for="user_pass">Password</label>
+        {{f.password}}
+        {% csrf_token %}
+		</p> 	
+		<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label></p>
+		<p class="login-submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Login" />
+		<hr>
+		<p class="login-submit"><input type="button" name="wp-submit" id="wp-submit" class="button-primary" onclick=cancelar() value="Cancelar" />
+		<input type="hidden" name="redirect_to" value="#"/>
+		<hr>
+		{% for msg in messages %}
+		<center><div class="card-panel teal lighten-1"></center>
+		{{msg.message}}
+		</p>  
+		<script>
+				function cancelar(){
+				window.location.href = '{%url "home" %}'
+				}
+		</script>
+    </div>
+    {% endfor %}      
+	</form> 
+
+</div>
+</body>
+</html>
+  
+  
+
+</body>
+
+</html>
